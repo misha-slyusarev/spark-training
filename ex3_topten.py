@@ -6,8 +6,8 @@ import sys
 if __name__ == "__main__":
     sc = SparkContext(appName="TopTen")
 
-    # Read all files from the folder and split obtained data by lines; 
-    # wholeTextFiles will read them as tupels (fileName, fileContent), 
+    # Read all files from the folder and split obtained data by lines;
+    # wholeTextFiles will read them as tuples (fileName, fileContent), 
     # so we take uv[1] to work with file content
     userVisits = sc.wholeTextFiles("uservisits") \
         .flatMap(lambda uv: uv[1].split('\n')).filter(lambda uv: uv != '')
